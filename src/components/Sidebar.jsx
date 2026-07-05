@@ -1,4 +1,4 @@
-import { Home, BookOpen, FileCheck, CheckSquare, MessageSquare, Menu, X, BookMarked, Printer } from 'lucide-react';
+import { Home, BookOpen, FileCheck, CheckSquare, MessageSquare, Menu, X, BookMarked } from 'lucide-react';
 
 export default function Sidebar({ activeTab, setActiveTab, isMobileOpen, setIsMobileOpen }) {
   const navItems = [
