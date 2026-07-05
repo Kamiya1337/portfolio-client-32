@@ -36,7 +36,7 @@ export default function ProjectsTab() {
                   <a href={previewData.url} target="_blank" rel="noreferrer" className="text-sm text-academic-blue hover:underline font-medium">
                     Mở thẻ mới
                   </a>
-                  <button onClick={closePreview} className="p-1.5 bg-slate-200 hover:bg-rose-500 hover:text-white text-slate-700 rounded-lg transition-colors">
+                  <button onClick={closePreview} className="p-1.5 bg-slate-200 hover:bg-academic-hero-blue hover:text-white text-slate-700 rounded-lg transition-colors">
                     <X size={20} />
                   </button>
                 </div>
@@ -65,14 +65,14 @@ export default function ProjectsTab() {
         {/* Nút quay lại */}
         <button 
           onClick={() => setSelectedProject(null)}
-          className="flex items-center gap-2 text-academic-muted hover:text-academic-blue mb-6 font-medium bg-white px-4 py-2 rounded-lg shadow-sm border border-academic-border w-fit transition-colors"
+          className="flex items-center gap-2 text-academic-muted hover:text-academic-hero-blue mb-6 font-medium bg-academic-card px-4 py-2 rounded-lg shadow-sm border border-academic-border w-fit transition-colors"
         >
           <ArrowLeft size={18} /> Quay lại danh sách
         </button>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-academic-border overflow-hidden">
+        <div className="bg-academic-card rounded-2xl shadow-sm border border-academic-border overflow-hidden">
           {/* Detail Header - academic language and culture theme */}
-          <div className="bg-gradient-to-br from-academic-navy via-academic-sidebar to-white p-8 text-academic-ink relative overflow-hidden border-b border-academic-border">
+          <div className="bg-gradient-to-br from-academic-navy via-academic-sidebar to-academic-card p-8 text-academic-ink relative overflow-hidden border-b border-academic-border">
             
             {/* Restrained open-book and page-line watermark */}
             <div className="absolute top-0 right-0 w-96 h-96 opacity-10 scale-125 translate-x-1/4 -translate-y-1/4 z-0 pointer-events-none text-academic-cyan">
@@ -137,7 +137,7 @@ export default function ProjectsTab() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 
                 {/* 1. Khối Báo cáo */}
-                <div className="bg-white p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
+                <div className="bg-academic-card p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
                   <FileText className="text-slate-400" size={32} />
                   <span className="text-sm font-medium text-slate-600">Báo cáo (PDF/Word)</span>
                   
@@ -149,7 +149,7 @@ export default function ProjectsTab() {
                     <a 
                       href={selectedProject.report} 
                       onClick={(e) => openPreview(e, selectedProject.report, 'pdf')}
-                      className="px-4 py-2 bg-academic-blue text-white text-sm font-bold rounded hover:bg-academic-hero-blue transition-colors mt-1 shadow-md hover:shadow-lg"
+                      className="px-4 py-2 bg-academic-blue-light text-academic-ink text-sm font-bold rounded hover:bg-academic-blue hover:text-white transition-colors mt-1 shadow-md hover:shadow-lg"
                     >
                       Xem Báo cáo
                     </a>
@@ -157,7 +157,7 @@ export default function ProjectsTab() {
                 </div>
 
                 {/* 2. Khối Hình ảnh */}
-                <div className="bg-white p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
+                <div className="bg-academic-card p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
                   <ImageIcon className="text-slate-400" size={32} />
                   <span className="text-sm font-medium text-slate-600">Ảnh chụp màn hình</span>
                   
@@ -177,7 +177,7 @@ export default function ProjectsTab() {
                 </div>
 
                 {/* 3. Khối Link Sản phẩm / Google Drive */}
-                <div className="bg-white p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
+                <div className="bg-academic-card p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
                   <ExternalLink className="text-slate-400" size={32} />
                   <span className="text-sm font-medium text-slate-600">Tài nguyên Google Drive</span>
                   
@@ -213,7 +213,7 @@ export default function ProjectsTab() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <div key={project.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden">
+          <div key={project.id} className="bg-academic-card rounded-2xl shadow-sm border border-academic-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden">
             <div className="p-6 flex-1">
               <div className="flex justify-between items-start mb-4">
                 <span className="px-2.5 py-1 bg-academic-sidebar text-academic-blue text-xs font-bold rounded uppercase tracking-wide border border-academic-border">
@@ -239,7 +239,7 @@ export default function ProjectsTab() {
             
             <button 
               onClick={() => setSelectedProject(project)}
-              className="w-full py-4 bg-academic-sidebar text-academic-blue font-semibold border-t border-academic-border hover:bg-academic-blue hover:text-white transition-colors flex justify-center items-center gap-2 group"
+              className="w-full py-4 bg-academic-sidebar text-academic-hero-blue font-semibold border-t border-academic-border hover:bg-academic-blue-light hover:text-academic-ink transition-colors flex justify-center items-center gap-2 group"
             >
               Xem chi tiết báo cáo <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>

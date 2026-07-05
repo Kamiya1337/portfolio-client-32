@@ -19,7 +19,7 @@ export default function PrintView() {
         </div>
         <button
           onClick={handlePrint}
-          className="flex items-center gap-2 bg-academic-blue hover:bg-academic-hero-blue text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition-all text-sm"
+          className="flex items-center gap-2 bg-academic-blue-light hover:bg-academic-blue text-academic-ink hover:text-white px-5 py-2.5 rounded-lg font-bold shadow-md transition-all text-sm"
         >
           <Printer size={18} />
           In / Lưu PDF (Ctrl + P)
@@ -139,10 +139,10 @@ export default function PrintView() {
           <div className="border border-slate-300 rounded-lg overflow-hidden">
             <table className="w-full text-left text-xs border-collapse">
               <thead>
-                <tr className="bg-academic-blue text-white border-b border-academic-hero-blue">
-                  <th className="p-3 font-bold border-r border-pink-200/40 w-1/4">Tiêu chí chấm điểm</th>
-                  <th className="p-3 font-bold border-r border-pink-200/40 w-2/5">Yêu cầu tiêu chuẩn Xuất sắc (8.1 - 10)</th>
-                  <th className="p-3 font-bold border-r border-pink-200/40">Mức độ tự đánh giá hiện tại</th>
+                <tr className="bg-academic-blue-light text-academic-ink border-b border-academic-hero-blue">
+                  <th className="p-3 font-bold border-r border-amber-200/60 w-1/4">Tiêu chí chấm điểm</th>
+                  <th className="p-3 font-bold border-r border-amber-200/60 w-2/5">Yêu cầu tiêu chuẩn Xuất sắc (8.1 - 10)</th>
+                  <th className="p-3 font-bold border-r border-amber-200/60">Mức độ tự đánh giá hiện tại</th>
                   <th className="p-3 font-bold">Kế hoạch hoàn thiện / Hành động</th>
                 </tr>
               </thead>
@@ -152,7 +152,7 @@ export default function PrintView() {
                     <td className="p-3 font-bold border-r border-slate-200 bg-slate-50">{item.criteria}</td>
                     <td className="p-3 border-r border-slate-200 text-justify">{item.excellent}</td>
                     <td className="p-3 border-r border-slate-200 font-medium text-academic-blue">{item.status}</td>
-                    <td className="p-3 italic text-rose-600">{item.action}</td>
+                    <td className="p-3 italic text-academic-warning">{item.action}</td>
                   </tr>
                 ))}
               </tbody>

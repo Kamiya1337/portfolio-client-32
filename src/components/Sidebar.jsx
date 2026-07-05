@@ -13,21 +13,21 @@ export default function Sidebar({ activeTab, setActiveTab, isMobileOpen, setIsMo
   return (
     <>
       {/* Mobile Header - Thêm print:hidden để ẩn khi in */}
-      <div className="md:hidden flex items-center justify-between bg-academic-sidebar text-academic-ink p-4 shadow-md shadow-pink-100 border-b border-academic-sidebar-border sticky top-0 z-50 print:hidden">
+      <div className="md:hidden flex items-center justify-between bg-academic-sidebar text-academic-ink p-4 shadow-md shadow-amber-100 border-b border-academic-sidebar-border sticky top-0 z-50 print:hidden">
         <div className="flex items-center gap-2 font-bold text-lg">
           <BookMarked className="text-academic-cyan" />
           <span>Learning Portfolio</span>
         </div>
-        <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="p-1 bg-white border border-academic-border rounded">
+        <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="p-1 bg-academic-card border border-academic-border rounded">
           {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Sidebar Navigation */}
-      <nav className={`${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:static inset-y-0 left-0 w-72 bg-academic-sidebar text-academic-muted transition-transform duration-300 ease-in-out z-40 flex flex-col shadow-2xl shadow-pink-100 print:hidden`}>
+      <nav className={`${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 fixed md:static inset-y-0 left-0 w-72 bg-academic-sidebar text-academic-muted transition-transform duration-300 ease-in-out z-40 flex flex-col shadow-2xl shadow-amber-100 print:hidden`}>
           <div className="p-6 border-b border-academic-sidebar-border">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-11 h-11 rounded-full bg-academic-blue flex items-center justify-center text-white font-bold text-sm tracking-wide shadow-lg ring-2 ring-pink-200">HT</div>
+            <div className="w-11 h-11 rounded-full bg-academic-blue-light flex items-center justify-center text-academic-ink font-bold text-sm tracking-wide shadow-lg ring-2 ring-amber-200">KL</div>
             <div>
               <h2 className="text-xl font-bold text-academic-ink leading-tight">Nguyễn Thị Khánh Linh</h2>
               <span className="text-xs text-academic-blue font-medium">Ngôn ngữ và Văn hóa Anh</span>
@@ -50,12 +50,12 @@ export default function Sidebar({ activeTab, setActiveTab, isMobileOpen, setIsMo
                 }}
                 className={`flex items-center gap-3 px-4 py-3 w-full text-left rounded-xl font-medium transition-all duration-200 group ${
                   isActive 
-                    ? 'bg-academic-blue text-white shadow-md' 
-                    : item.id === 'print' ? 'hover:bg-academic-blue hover:text-white text-academic-warning'
-                    : 'hover:bg-white hover:text-academic-blue'
+                    ? 'bg-academic-blue-light text-academic-ink shadow-md' 
+                    : item.id === 'print' ? 'hover:bg-academic-blue-light hover:text-academic-ink text-academic-warning'
+                    : 'hover:bg-academic-card hover:text-academic-hero-blue'
                 }`}
               >
-                <Icon size={20} className={isActive ? 'text-white' : (item.id === 'print' ? 'text-academic-warning group-hover:text-white' : 'text-academic-muted group-hover:text-academic-blue')} />
+                <Icon size={20} className={isActive ? 'text-academic-ink' : (item.id === 'print' ? 'text-academic-warning group-hover:text-academic-ink' : 'text-academic-muted group-hover:text-academic-hero-blue')} />
                 {item.label}
               </button>
             );

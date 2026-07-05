@@ -55,7 +55,7 @@ export default function EvidenceTable() {
       );
     }
     return (
-      <span className="inline-flex items-center gap-1 px-2 py-1 bg-rose-50 text-rose-600 text-xs font-bold rounded border border-rose-200">
+      <span className="inline-flex items-center gap-1 px-2 py-1 bg-amber-50 text-academic-warning text-xs font-bold rounded border border-amber-200">
         <XCircle size={14}/> Thiếu MC
       </span>
     );
@@ -77,7 +77,7 @@ export default function EvidenceTable() {
                 <a href={previewData.url} target="_blank" rel="noreferrer" className="text-sm text-academic-blue hover:underline font-medium">
                   Mở thẻ mới
                 </a>
-                <button onClick={closePreview} className="p-1.5 bg-slate-200 hover:bg-rose-500 hover:text-white text-slate-700 rounded-lg transition-colors">
+                <button onClick={closePreview} className="p-1.5 bg-slate-200 hover:bg-academic-hero-blue hover:text-white text-slate-700 rounded-lg transition-colors">
                   <X size={20} />
                 </button>
               </div>
@@ -109,7 +109,7 @@ export default function EvidenceTable() {
         <p className="text-slate-600 text-lg">Tổng hợp tình trạng các file báo cáo, hình ảnh và link sản phẩm cần nộp.</p>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-academic-border overflow-hidden">
+      <div className="bg-academic-card rounded-2xl shadow-sm border border-academic-border overflow-hidden">
         <div className="bg-academic-sidebar border-b border-academic-border p-4 flex items-start gap-3">
           <AlertCircle className="text-academic-blue mt-0.5 flex-shrink-0" size={20} />
           <p className="text-sm text-academic-ink">

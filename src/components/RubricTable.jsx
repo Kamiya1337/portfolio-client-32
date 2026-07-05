@@ -24,7 +24,7 @@ export default function RubricTable() {
       </div>
 
       {/* THANH TIẾN ĐỘ TỰ ĐỘNG ĐỒNG BỘ */}
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-academic-border mb-8">
+      <div className="bg-academic-card p-6 rounded-2xl shadow-sm border border-academic-border mb-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-3">
           <div>
             <h3 className="font-bold text-slate-800 mb-1 flex items-center gap-2">
@@ -46,11 +46,11 @@ export default function RubricTable() {
       </div>
 
       {/* BẢNG TRẠNG THÁI ĐỘNG CẬP NHẬT THEO FILE DATA */}
-      <div className="bg-white rounded-2xl shadow-sm border border-academic-border overflow-hidden">
+      <div className="bg-academic-card rounded-2xl shadow-sm border border-academic-border overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[800px]">
             <thead>
-              <tr className="bg-academic-blue text-white text-sm">
+              <tr className="bg-academic-blue-light text-academic-ink text-sm">
                 <th className="p-4 font-semibold w-1/4">Tiêu chí chấm điểm</th>
                 <th className="p-4 font-semibold w-1/3">Yêu cầu tiêu chuẩn Xuất sắc (8.1 - 10)</th>
                 <th className="p-4 font-semibold">Hiện trạng tiêu chí</th>
@@ -96,7 +96,7 @@ export default function RubricTable() {
                         {isFullyDone ? "Đạt chuẩn Xuất sắc" : "Thiếu minh chứng"}
                       </span>
                     </td>
-                    <td className={`p-4 text-xs italic font-medium ${isFullyDone ? "text-slate-400 line-through" : "text-rose-600"}`}>
+                    <td className={`p-4 text-xs italic font-medium ${isFullyDone ? "text-slate-400 line-through" : "text-academic-warning"}`}>
                       {isFullyDone 
                         ? "Đã đồng bộ" 
                         : `Cần bổ sung: ${!isReportDone ? "File báo cáo PDF" : ""} ${!isReportDone && !isImgDone ? "&" : ""} ${!isImgDone ? "Ảnh screenshot" : ""}`

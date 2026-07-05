@@ -9,7 +9,7 @@ export default function HomeTab({ setActiveTab }) {
       
       {/* Hero Section */}
       
-      <div className="relative overflow-hidden rounded-3xl border border-academic-border bg-gradient-to-br from-academic-navy via-academic-sidebar to-white p-6 text-academic-ink shadow-2xl shadow-pink-100/70 md:p-12">
+      <div className="relative overflow-hidden rounded-3xl border border-academic-border bg-gradient-to-br from-academic-navy via-academic-sidebar to-academic-card p-6 text-academic-ink shadow-2xl shadow-amber-100/70 md:p-12">
         <div className="pointer-events-none absolute inset-y-0 right-0 w-full opacity-[0.06] md:w-1/2">
           <div className="absolute right-6 top-8 h-52 w-40 rounded-t-full border border-academic-cyan md:right-10 md:h-64 md:w-48" />
           <div className="absolute right-20 top-20 h-52 w-40 rounded-t-full border border-academic-blue-light md:right-24 md:h-64 md:w-48" />
@@ -27,11 +27,11 @@ export default function HomeTab({ setActiveTab }) {
               Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo
             </p>
 
-            <div className="mb-8 max-w-2xl rounded-2xl border border-academic-border bg-white/80 p-6 shadow-sm backdrop-blur-sm">
+            <div className="mb-8 max-w-2xl rounded-2xl border border-academic-border bg-academic-card/80 p-6 shadow-sm backdrop-blur-sm">
               <p className="mb-5 leading-relaxed text-academic-muted">{student.bio}</p>
               <div className="flex flex-wrap gap-2">
                 {student.skills.map((skill, idx) => (
-                  <span key={idx} className="rounded-md border border-academic-border bg-white px-3 py-1 text-xs font-medium text-academic-blue">
+                  <span key={idx} className="rounded-md border border-academic-border bg-academic-card px-3 py-1 text-xs font-medium text-academic-hero-blue">
                     {skill}
                   </span>
                 ))}
@@ -41,27 +41,27 @@ export default function HomeTab({ setActiveTab }) {
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <button 
                 onClick={() => setActiveTab('projects')}
-                className="flex items-center justify-center gap-2 rounded-lg bg-academic-blue px-6 py-3 font-medium text-white shadow-lg shadow-pink-200 transition-all hover:bg-academic-hero-blue"
+                className="flex items-center justify-center gap-2 rounded-lg bg-academic-blue-light px-6 py-3 font-medium text-academic-ink shadow-lg shadow-amber-200 transition-all hover:bg-academic-blue hover:text-white"
               >
                 <Layers size={18} /> Xem bài tập
               </button>
               <button 
                 onClick={() => setActiveTab('evidence')}
-                className="flex items-center justify-center gap-2 rounded-lg border border-academic-border bg-white px-6 py-3 font-medium text-academic-blue backdrop-blur-sm transition-all hover:bg-academic-sidebar"
+                className="flex items-center justify-center gap-2 rounded-lg border border-academic-border bg-academic-card px-6 py-3 font-medium text-academic-hero-blue backdrop-blur-sm transition-all hover:bg-academic-sidebar"
               >
                 <Library size={18} /> Minh chứng
               </button>
             </div>
           </div>
 
-          <aside className="relative mx-auto w-full max-w-sm rounded-[24px] border border-academic-border bg-academic-sidebar/95 p-5 shadow-2xl shadow-pink-200/60 backdrop-blur-sm">
+          <aside className="relative mx-auto w-full max-w-sm rounded-[24px] border border-academic-border bg-academic-sidebar/95 p-5 shadow-2xl shadow-amber-200/60 backdrop-blur-sm">
             <Quote className="absolute right-2 top-2 text-academic-cyan/40" size={58} strokeWidth={1.5} />
             <div className="pointer-events-none absolute bottom-10 right-8 h-24 w-24 rounded-full bg-academic-cyan/20 blur-sm" />
 
             <div className="relative">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-academic-blue">Student Profile</p>
 
-              <div className="mb-5 rounded-[22px] border border-academic-border bg-white p-3 shadow-lg shadow-pink-100">
+              <div className="mb-5 rounded-[22px] border border-academic-border bg-academic-card p-3 shadow-lg shadow-amber-100">
                 <div className="relative aspect-[4/5] max-h-[520px] overflow-hidden rounded-2xl">
                   <img
                     src="/avatar.jpg"
@@ -69,7 +69,7 @@ export default function HomeTab({ setActiveTab }) {
                     className="h-full w-full object-cover object-center"
                   />
 
-                  <span className="absolute bottom-3 left-3 rounded-lg bg-white/95 px-3 py-2 text-xs font-bold text-academic-blue shadow-sm">
+                  <span className="absolute bottom-3 left-3 rounded-lg bg-academic-card/95 px-3 py-2 text-xs font-bold text-academic-hero-blue shadow-sm">
                     Nguyễn Thị Khánh Linh
                   </span>
                 </div>
@@ -91,7 +91,7 @@ export default function HomeTab({ setActiveTab }) {
           { label: 'Kỹ năng số', value: '06+', desc: 'Nhóm năng lực lõi' },
           { label: 'Mức điểm kỳ vọng', value: '10', desc: 'Xuất sắc' },
         ].map((stat, i) => (
-          <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-academic-border flex flex-col items-center text-center">
+          <div key={i} className="bg-academic-card p-6 rounded-2xl shadow-sm border border-academic-border flex flex-col items-center text-center">
             <h3 className="text-4xl font-black text-academic-hero-blue mb-1">{stat.value}</h3>
             <p className="font-bold text-academic-ink text-sm">{stat.label}</p>
             <p className="text-xs text-academic-muted mt-1">{stat.desc}</p>
@@ -109,8 +109,8 @@ export default function HomeTab({ setActiveTab }) {
           {overview.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.id} className="bg-white p-6 rounded-xl border border-academic-border shadow-sm hover:shadow-md transition-shadow group flex items-start gap-4">
-                <div className="p-3 bg-academic-sidebar text-academic-blue rounded-lg group-hover:bg-academic-blue group-hover:text-white transition-colors">
+              <div key={item.id} className="bg-academic-card p-6 rounded-xl border border-academic-border shadow-sm hover:shadow-md transition-shadow group flex items-start gap-4">
+                <div className="p-3 bg-academic-sidebar text-academic-hero-blue rounded-lg group-hover:bg-academic-blue-light group-hover:text-academic-ink transition-colors">
                   <Icon size={24} />
                 </div>
                 <div>

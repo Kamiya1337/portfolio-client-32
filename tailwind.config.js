@@ -8,19 +8,19 @@ export default {
     extend: {
       colors: {
         academic: {
-          sidebar: '#FFF3F8',
-          'sidebar-border': '#F4B6CF',
-          navy: '#FDF2F8',
-          'hero-blue': '#BE185D',
-          blue: '#BE185D',
-          cyan: '#F9A8D4',
-          'blue-light': '#EC4899',
-          background: '#FFFDFB',
-          card: '#FFFFFF',
-          ink: '#211C2F',
-          muted: '#6F6675',
-          border: '#F4B6CF',
-          warning: '#EC4899',
+          sidebar: '#FFF9D8',
+          'sidebar-border': '#E8DDA8',
+          navy: '#FFFFFF',
+          'hero-blue': '#8A6508',
+          blue: '#B8860B',
+          cyan: '#D6A72A',
+          'blue-light': '#F2C94C',
+          background: '#FFFFF0',
+          card: '#FFFDF8',
+          ink: '#2A2418',
+          muted: '#7A6A3A',
+          border: '#E8DDA8',
+          warning: '#B8860B',
         }
       }
     },
