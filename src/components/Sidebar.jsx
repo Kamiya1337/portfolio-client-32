@@ -6,8 +6,7 @@ export default function Sidebar({ activeTab, setActiveTab, isMobileOpen, setIsMo
     { id: 'projects', icon: BookOpen, label: 'Bài tập / Dự án' },
     { id: 'evidence', icon: FileCheck, label: 'Bảng Minh chứng' },
     { id: 'rubric', icon: CheckSquare, label: 'Rubric / Đánh giá' },
-    { id: 'summary', icon: MessageSquare, label: 'Tổng kết cá nhân' },
-    { id: 'print', icon: Printer, label: 'Bản in (PDF)' },
+    { id: 'summary', icon: MessageSquare, label: 'Tổng kết cá nhân' }
   ];
 
   return (

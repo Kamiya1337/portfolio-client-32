@@ -5,7 +5,6 @@ import ProjectsTab from './components/ProjectsTab';
 import EvidenceTable from './components/EvidenceTable';
 import RubricTable from './components/RubricTable';
 import Summary from './components/Summary';
-import PrintView from './components/PrintView'; // Import Component Mới
 
 export default function App() {
   // Chỉ khai báo state 1 lần duy nhất
