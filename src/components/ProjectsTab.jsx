@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { ChevronRight, ArrowLeft, FileText, Image as ImageIcon, X, ExternalLink } from 'lucide-react';
+import { ChevronRight, ArrowLeft, FileText, X, ExternalLink, Download, Maximize2 } from 'lucide-react';
 
 export default function ProjectsTab() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -129,73 +129,82 @@ export default function ProjectsTab() {
               </p>
             </div>
 
-            {/* Evidence Section - ĐÃ ĐỒNG BỘ POP-UP & CÓ LẠI LINK DRIVE */}
-            <div className="bg-academic-sidebar p-6 rounded-xl border border-academic-border">
-              <h3 className="text-lg font-bold text-slate-800 mb-4">Sản phẩm & Minh chứng</h3>
-              
-              {/* Sửa md:grid-cols-2 thành grid-cols-1 md:grid-cols-3 */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                
-                {/* 1. Khối Báo cáo */}
-                <div className="bg-academic-card p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
-                  <FileText className="text-slate-400" size={32} />
-                  <span className="text-sm font-medium text-slate-600">Báo cáo (PDF/Word)</span>
-                  
-                  {selectedProject.report === "Sẽ cập nhật sau" || !selectedProject.report ? (
-                    <span className="text-xs font-bold px-3 py-1.5 bg-amber-100 text-amber-700 rounded-md mt-1">Sẽ cập nhật sau</span>
-                  ) : selectedProject.report === "Không yêu cầu" ? (
-                    <span className="text-xs font-bold px-3 py-1.5 bg-gray-200 text-gray-600 rounded-md mt-1">Không yêu cầu</span>
-                  ) : (
+            {/* Evidence Section - Render trực tiếp Báo cáo PDF */}
+            <div className="bg-academic-sidebar p-6 rounded-2xl border border-academic-border space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-academic-border">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 bg-red-100/80 text-red-600 rounded-xl border border-red-200 shadow-sm">
+                    <FileText size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2">
+                      Sản phẩm & Minh chứng
+                      <span className="text-xs font-semibold px-2.5 py-0.5 bg-red-50 text-red-600 border border-red-200 rounded-full">
+                        PDF Report
+                      </span>
+                    </h3>
+                    <p className="text-xs text-academic-muted mt-0.5">Tài liệu báo cáo chi tiết được nhúng trực tiếp bên dưới</p>
+                  </div>
+                </div>
+
+                {/* Actions Bar */}
+                {selectedProject.report && selectedProject.report !== "Sẽ cập nhật sau" && selectedProject.report !== "Không yêu cầu" && (
+                  <div className="flex items-center gap-2 self-end sm:self-auto">
                     <a 
                       href={selectedProject.report} 
-                      onClick={(e) => openPreview(e, selectedProject.report, 'pdf')}
-                      className="px-4 py-2 bg-academic-blue-light text-academic-ink text-sm font-bold rounded hover:bg-academic-blue hover:text-white transition-colors mt-1 shadow-md hover:shadow-lg"
-                    >
-                      Xem Báo cáo
-                    </a>
-                  )}
-                </div>
-
-                {/* 2. Khối Hình ảnh */}
-                <div className="bg-academic-card p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
-                  <ImageIcon className="text-slate-400" size={32} />
-                  <span className="text-sm font-medium text-slate-600">Ảnh chụp màn hình</span>
-                  
-                  {selectedProject.evidenceImg === "Sẽ cập nhật sau" || !selectedProject.evidenceImg ? (
-                    <span className="text-xs font-bold px-3 py-1.5 bg-amber-100 text-amber-700 rounded-md mt-1">Sẽ cập nhật sau</span>
-                  ) : selectedProject.evidenceImg === "Không yêu cầu" ? (
-                    <span className="text-xs font-bold px-3 py-1.5 bg-gray-200 text-gray-600 rounded-md mt-1">Không yêu cầu</span>
-                  ) : (
-                    <a 
-                      href={selectedProject.evidenceImg} 
-                      onClick={(e) => openPreview(e, selectedProject.evidenceImg, 'img')}
-                      className="px-4 py-2 bg-green-600 text-white text-sm font-bold rounded hover:bg-green-700 transition-colors mt-1 shadow-md hover:shadow-lg"
-                    >
-                      Xem Hình ảnh
-                    </a>
-                  )}
-                </div>
-
-                {/* 3. Khối Link Sản phẩm / Google Drive */}
-                <div className="bg-academic-card p-4 rounded-lg border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-2 h-40 hover:border-academic-blue transition-colors">
-                  <ExternalLink className="text-slate-400" size={32} />
-                  <span className="text-sm font-medium text-slate-600">Tài nguyên Google Drive</span>
-                  
-                  {selectedProject.driveLink === "Sẽ cập nhật sau" || !selectedProject.driveLink ? (
-                    <span className="text-xs font-bold px-3 py-1.5 bg-amber-100 text-amber-700 rounded-md mt-1">Sẽ cập nhật sau</span>
-                  ) : (
-                    <a 
-                      href={selectedProject.driveLink} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="px-4 py-2 bg-amber-600 text-white text-sm font-bold rounded hover:bg-amber-700 transition-colors mt-1 shadow-md hover:shadow-lg"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white text-slate-700 hover:text-academic-blue text-xs font-semibold rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors shadow-sm"
+                      title="Mở trong thẻ mới"
                     >
-                      Mở Google Drive
+                      <ExternalLink size={14} /> <span className="hidden sm:inline">Mở thẻ mới</span>
                     </a>
-                  )}
-                </div>
-
+                    <a 
+                      href={selectedProject.report} 
+                      download 
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-academic-blue text-white text-xs font-semibold rounded-lg hover:bg-academic-hero-blue transition-colors shadow-sm"
+                      title="Tải tệp PDF"
+                    >
+                      <Download size={14} /> <span>Tải PDF</span>
+                    </a>
+                    <button 
+                      onClick={(e) => openPreview(e, selectedProject.report, 'pdf')}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-800 text-white text-xs font-semibold rounded-lg hover:bg-slate-700 transition-colors shadow-sm"
+                      title="Xem toàn màn hình"
+                    >
+                      <Maximize2 size={14} /> <span className="hidden sm:inline">Toàn màn hình</span>
+                    </button>
+                  </div>
+                )}
               </div>
+
+              {/* PDF Container / Inline Viewer */}
+              {selectedProject.report === "Sẽ cập nhật sau" || !selectedProject.report ? (
+                <div className="bg-academic-card p-10 rounded-xl border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-3">
+                  <FileText className="text-amber-400" size={48} />
+                  <div>
+                    <h4 className="font-bold text-slate-700 text-base">Báo cáo PDF đang được cập nhật</h4>
+                    <p className="text-sm text-slate-500 mt-1">Tài liệu minh chứng cho bài học này sẽ sớm được tải lên.</p>
+                  </div>
+                  <span className="text-xs font-bold px-3 py-1 bg-amber-100 text-amber-700 rounded-full mt-2">Đang hoàn thiện</span>
+                </div>
+              ) : selectedProject.report === "Không yêu cầu" ? (
+                <div className="bg-academic-card p-10 rounded-xl border-2 border-dashed border-academic-border flex flex-col items-center justify-center text-center gap-3">
+                  <FileText className="text-slate-400" size={48} />
+                  <div>
+                    <h4 className="font-bold text-slate-700 text-base">Không yêu cầu Báo cáo PDF</h4>
+                    <p className="text-sm text-slate-500 mt-1">Bài học này không yêu cầu nộp file báo cáo PDF.</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="relative w-full h-[550px] md:h-[700px] rounded-xl overflow-hidden border border-slate-200 bg-slate-900/5 shadow-inner">
+                  <iframe 
+                    src={`${selectedProject.report}#toolbar=1&navpanes=0`} 
+                    title={`Báo cáo PDF - ${selectedProject.title}`} 
+                    className="w-full h-full border-0 rounded-xl bg-white"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
